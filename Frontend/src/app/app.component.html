@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="container jumbotron-bck">
+        <div class="jumbotron  jumbotron-fluid">
+            <div class="container">
+
+                <h1 class="display-4">{{totalCases }}</h1>
+                <p class="lead">Nombre total de cas signalés à ce jour</p>
+
+                <hr>
+
+                <h1 class="display-4"> Nouveaux cas signalés depuis hier</h1>
+                <p class="lead"> {{totalCasesPreviousDay}}</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center border tableMarge">
+
+
+        <div class="container">
+            <table *ngIf="newStats" class="table table-hover">
+
+                <thead>
+                <th>Pays</th>
+                <th>Province/Etat</th>
+                <th>Total cas detectés</th>
+                <th>Changements depuis hier</th>
+                </thead>
+
+                <tbody>
+                <tr *ngFor="let locationStats of newStats">
+                    <td>{{locationStats.country}}</td>
+                    <td>{{locationStats.state}}</td>
+                    <td>{{locationStats.latestTotalCases}}</td>
+                    <td>{{locationStats.diffFromPreviousDay}}</td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
