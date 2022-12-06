@@ -1,71 +1,14 @@
-<div class="container">
-    <div *ngIf="newStats" class=" jumbotron-bck">
-        <div class="jumbotron  jumbotron-fluid">
-            <div *ngIf="newStats">
+<div *ngIf="newStats" class="container">
 
-                <h1 class="display-4">{{totalCases}}</h1>
-                <p class="lead">Nombre total de cas signalés à ce jour</p>
+    <header [totalCasesPreviousDay]="totalCasesPreviousDay" [totalCases]="totalCases"></header>
 
-                <hr>
-
-                <h1 class="lead"> Nouveaux cas signalés depuis hier</h1>
-                <p class="display-4"> {{totalCasesPreviousDay}}</p>
-
-            </div>
-        </div>
-    </div>
-
-    <div *ngIf="newStats">
-        <div class="tableMarge">
-            <div class="table-responsive-xl text-center">
-                <table *ngIf="newStats" class="table table-hover border table-bordered align-middle ">
-                    <thead style="text-align: center">
-                    <th>Pays</th>
-                    <th>Etat</th>
-                    <th>Total cas detectés</th>
-                    <th>Changements depuis hier</th>
-                    <th>Graphe</th>
-                    </thead>
-
-                    <tbody>
-                    <tr *ngFor="let locationStats of newStats">
-                        <td>{{locationStats.country}}</td>
-                        <td>{{locationStats.state}}</td>
-                        <td>{{locationStats.latestTotalCases}}</td>
-                        <td>{{locationStats.diffFromPreviousDay}}</td>
-                        <td>
-                            <!--chart-->
-                            <chart [locationStats]="locationStats"
-                                   [totalCasesPreviousDay]="totalCasesPreviousDay"></chart>
-                        </td>
-                    </tr>
-                    </tbody>
-
-                </table>
-            </div>
-
-        </div>
-
-    </div>
-
-
-
+    <stats-table [newStats]="newStats" [totalCasesPreviousDay]="totalCasesPreviousDay"
+                 [totalCases]="totalCases"></stats-table>
 
 </div>
 
-
-
-
-<div class="container">
-    <div
-            class="row align-items-center"
-            style="min-height: 100vh">
-        <div class="col-md-12">
-            <div *ngIf="!newStats" >
-                <div  class="spinner-grow text-success " role="status">
-                    <span class="sr-only"></span>
-                </div>
-            </div>
-        </div>
-    </div>
+<div *ngIf="!newStats">
+    <loader></loader>
 </div>
+
+
