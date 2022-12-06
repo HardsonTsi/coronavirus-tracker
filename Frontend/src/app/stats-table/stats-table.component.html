@@ -1,0 +1,33 @@
+<div>
+    <div class="tableMarge">
+        <div class="table-responsive-xl text-center">
+            <table class="table table-hover border table-bordered align-middle ">
+                <thead style="text-align: center">
+                <th>Pays</th>
+                <th>Etat</th>
+                <th>Total cas detectés</th>
+                <th>Changements depuis hier</th>
+                <th>Graphe</th>
+                </thead>
+
+                <tbody>
+                <tr *ngFor="let locationStats of newStats">
+                    <td>{{locationStats.country}}</td>
+                    <td>{{locationStats.state}}</td>
+                    <td>{{locationStats.latestTotalCases}}</td>
+                    <td>{{locationStats.diffFromPreviousDay}}</td>
+                    <td>
+                        <!--chart-->
+                        <chart [locationStats]="locationStats" [totalCases]="totalCases"
+                               [totalCasesPreviousDay]="totalCasesPreviousDay"></chart>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
