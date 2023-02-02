@@ -15,7 +15,6 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>18</java.version>
-
     </properties>
     <dependencies>
         <dependency>
@@ -38,7 +37,6 @@
             <version>1.9.0</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -55,5 +53,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

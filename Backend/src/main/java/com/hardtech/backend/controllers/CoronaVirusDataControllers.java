@@ -12,14 +12,14 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("coronavirus-tracker/api/v1")
+@RequestMapping("coronavirus-tracker")
 @CrossOrigin("*")
 @AllArgsConstructor
 public class CoronaVirusDataControllers {
 
     private CoronaVirusDataService coronaVirusDataService;
 
-    @GetMapping("/newStats")
+    @GetMapping
     List<LocationStats> getNewStats() throws IOException, InterruptedException {
         return coronaVirusDataService.fetchVirusData();
     }
