@@ -1,12 +1,13 @@
 package com.hardtech.backend.services;
 
 import com.hardtech.backend.models.LocationStats;
-import jakarta.annotation.PostConstruct;
+import lombok.AllArgsConstructor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.io.StringReader;
 import java.net.URI;
@@ -49,7 +50,7 @@ public class CoronaVirusDataService {
             int previousDayCases = Integer.parseInt(record.get(record.size() - 2));
             locationStats.setLatestTotalCases(latestCases);
             locationStats.setDiffFromPreviousDay(latestCases - previousDayCases);
-            System.out.println(locationStats);
+            // System.out.println(locationStats);
             newStats.add(locationStats);
         }
         return newStats;
